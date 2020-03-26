@@ -3,13 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "all-tests": "npm run lint && npm run test-headless && npm run e2e-headless",
-    "build": "ng build",
+    "build": "ng build --aot --prod",
+    "buildDev": "ng build",
+    "dev": "ng start",
     "e2e": "ng e2e",
     "e2e-headless": "ng e2e --protractor-config='e2e/ci.protractor.conf.js'",
     "lint": "ng lint",
     "ng": "ng",
     "prettier": "pretty-quick",
-    "start": "ng serve",
+    "start": "node server.js",
     "test": "ng test --codeCoverage=true",
     "test-headless": "ng test --watch=false --browsers=ChromeHeadless"
   },
@@ -25,6 +27,7 @@
     "@angular/platform-browser": "~9.1.0",
     "@angular/platform-browser-dynamic": "~9.1.0",
     "@angular/router": "~9.1.0",
+    "express": "^4.17.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

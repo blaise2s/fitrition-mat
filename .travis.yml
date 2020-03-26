@@ -10,4 +10,4 @@ deploy:
   app: fitrition
 script:
   - npm run all-tests
-  - npm run build -- --prod
+  - npm run build
