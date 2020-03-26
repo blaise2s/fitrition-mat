@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './user/user.component';
 
+export type RouteParams = 'username';
+
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'about/:username', component: UserComponent },

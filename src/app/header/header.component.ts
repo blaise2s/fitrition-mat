@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
 
   @Input() links: HeaderLink[];
 
-  linkStyle: string = 'fit--header--link fit--header--link--fill-center';
+  linkStyle = 'fit--header--link fit--header--link--fill-center';
   @Input() set linkFill(fill: LinkFill) {
     this.linkStyle = `fit--header--link fit--header--link--fill-${fill}`;
   }

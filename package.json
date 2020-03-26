@@ -3,13 +3,16 @@
   "version": "0.0.0",
   "homepage": "https://fitrition.blaise2s.herokuapp.com/",
   "scripts": {
+    "all-tests": "npm lint && npm test-headless && npm e2e-headless",
     "build": "ng build",
     "e2e": "ng e2e",
+    "e2e-headless": "ng e2e --protractor-config='e2e/ci.protractor.conf.js",
     "lint": "ng lint",
     "ng": "ng",
     "prettier": "pretty-quick",
     "start": "ng serve",
-    "test": "ng test"
+    "test": "ng test --codeCoverage=true",
+    "test-headless": "ng test --watch=false --browsers=ChromeHeadless"
   },
   "private": true,
   "dependencies": {

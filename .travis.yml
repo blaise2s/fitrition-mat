@@ -1,7 +1,13 @@
 language: node_js
 node_js:
   - node
+addons:
+  chrome: stable
 deploy:
   provider: heroku
   api_key:
     secure: yiSlm/iuzobMET6TS5g15rgctwTozvVkW5MW66/CazaPhfquQS433GjgY3L9IpmveKB5Nc8S8arfkJt4UVY/s7LCtSGduLGWgTAnvdKoqtGjHri44pIj1r8ZDs7oYBkQesi8dxw43zvQjcPzn3uK4XYoptAOKECHt/ZdW32lcD16O5IkgSEwt4aNjtR/s5RqO6sZ7199kXQ5hwq0wX3jwet0S/ksQkb1w5kOj5IjgM2n8pj3Gm4S4mBtvmUXMENUizbH8Man2Tg0A0Nf8cPwhmnuOC7MMLT6OTf/sTWprDFSvGG9j51wpoN6x2gfVghWaACKg+i+DJKAust3pbwldmR1pGatFvs/47lEJQEMnp04VcXVro1ZOq6hDPiLPLced6i01QFMyKLxZrpxRc2eQDYs9FpiGwRUuCdUtwX9es8rSbRWdMgoCNTL1yZ95EEO54/Pw/V9fVjrPcAQ99cPgJtsyiM3jKG++9uf4UMj8Q2gb/c0lLX5mQv77acO4VoeOAXOD2ILuAsccP8KfDPAWgLRCKxyA6/iRcF/H2b2srMCMUQT3m6vO57iN5f0ZERQyAeJogHGWc9w8/Dk5JqAM+a28RcZMXYBlxPNZiXz8u4YAZcp7gOTE+TaCJvE2xyrsgR+tBCBfjJFGCRqJUsKcLXSiFCtZWyFsLgZI5arUQ4=
+  app: fitrition
+script:
+  - npm run all-tests
+  - npm run build -- --prod --base-href $base_href

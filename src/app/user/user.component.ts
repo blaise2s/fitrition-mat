@@ -1,5 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { RouteParams } from '../app-routing.module';
 
 @Component({
   selector: 'fit-user',
@@ -11,8 +12,8 @@ export class UserComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) {
     this.route.params.subscribe((params) => {
-      this.username = params['username'];
-      this.username;
+      const key: RouteParams = 'username';
+      this.username = params[key];
     });
   }
 

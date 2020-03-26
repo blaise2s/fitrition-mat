@@ -43,8 +43,8 @@ export class AboutComponent implements OnInit {
     this.adjustTileWidth();
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(_event: Event): void {
+  @HostListener('window:resize')
+  onResize(): void {
     this.adjustTileWidth();
   }
 

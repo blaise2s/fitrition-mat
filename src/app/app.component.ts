@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { HeaderLink } from './header/header.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'fit-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
