@@ -7,8 +7,8 @@ const app = express();
 app.use(express.static(__dirname + '/dist/fitrition'));
 
 // Send all requests to index.html
-app.get('/*', function (_req, res) {
-  console.log(req);
+app.get('/*', function (req, res) {
+  console.log(`${req.method}: ${req.url}`);
   res.sendFile(path.join(__dirname + '/dist/fitrition/index.html'));
 });
 
