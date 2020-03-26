@@ -6,7 +6,7 @@
     "all-tests": "npm run lint && npm run test-headless && npm run e2e-headless",
     "build": "ng build",
     "e2e": "ng e2e",
-    "e2e-headless": "ng e2e --protractor-config='e2e/ci.protractor.conf.js",
+    "e2e-headless": "ng e2e --protractor-config='e2e/ci.protractor.conf.js'",
     "lint": "ng lint",
     "ng": "ng",
     "prettier": "pretty-quick",
