@@ -9,7 +9,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -39,7 +41,9 @@ import { UserComponent } from './user/user.component';
     MatFormFieldModule,
     MatGridListModule,
     MatInputModule,
+    MatProgressBarModule,
     MatProgressSpinnerModule,
+    MatSlideToggleModule,
     MatToolbarModule,
     ReactiveFormsModule
   ],

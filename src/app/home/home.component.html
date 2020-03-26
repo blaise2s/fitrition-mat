@@ -1,4 +1,21 @@
 <div class="fit--home">
+  <div [ngSwitch]="animate">
+    <mat-progress-bar
+      *ngSwitchCase="true"
+      class="fit--home--progress"
+      color="primary"
+      [mode]="mode"
+    >
+    </mat-progress-bar>
+    <div *ngSwitchDefault class="fit--home--progress-hold"></div>
+  </div>
   <h2>Work in progress, check back soon for more!</h2>
   <mat-progress-spinner [color]="color" [mode]="mode"> </mat-progress-spinner>
+  <mat-slide-toggle
+    class="fit--home--slider"
+    color="primary"
+    [checked]="checked"
+    (toggleChange)="toggle()"
+  >
+  </mat-slide-toggle>
 </div>

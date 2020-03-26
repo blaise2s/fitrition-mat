@@ -4,8 +4,8 @@
   "scripts": {
     "all-tests": "npm run lint && npm run test-headless && npm run e2e-headless",
     "build": "ng build --aot --prod",
-    "buildDev": "ng build",
-    "dev": "ng start",
+    "build-dev": "ng build",
+    "dev": "ng serve",
     "e2e": "ng e2e",
     "e2e-headless": "ng e2e --protractor-config='e2e/ci.protractor.conf.js'",
     "lint": "ng lint",
