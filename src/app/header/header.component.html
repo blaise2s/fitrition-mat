@@ -1,0 +1,15 @@
+<mat-toolbar class="fit--header" color="primary">
+  <a class="fit--header--title" routerLink="/">
+    <ng-content></ng-content>
+  </a>
+  <nav>
+    <a
+      *ngFor="let link of links"
+      [class]="linkStyle"
+      [routerLink]="link.path"
+      [routerLinkActiveOptions]="routerLinkActiveOptions"
+      routerLinkActive="active"
+      >{{ link.title }}</a
+    >
+  </nav>
+</mat-toolbar>

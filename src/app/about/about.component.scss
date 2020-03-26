@@ -1,0 +1,13 @@
+@import '../../scss/colors.scss';
+
+.about--card {
+  width: 89%;
+  height: 89%;
+  overflow: auto;
+
+  &--name {
+    color: $primary;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}

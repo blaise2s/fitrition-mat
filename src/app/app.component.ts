@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HeaderLink } from './header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'fitrition';
+  headerLinks: HeaderLink[] = [
+    { title: 'About', path: '/about' },
+    { title: 'Contact', path: '/contact' }
+  ];
 }

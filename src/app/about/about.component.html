@@ -1,0 +1,36 @@
+<mat-grid-list
+  [cols]="cols"
+  [rowHeight]="rowHeight"
+  [gutterSize]="gutterSize"
+  #ref
+>
+  <mat-grid-tile
+    *ngFor="let card of cards"
+    [colspan]="tileWidth"
+    [rowspan]="tileHeight"
+  >
+    <mat-card class="about--card">
+      <mat-card-header>
+        <mat-card-title>
+          <a class="about--card--name" [routerLink]="card.username">{{
+            card.name
+          }}</a>
+        </mat-card-title>
+        <mat-card-subtitle>{{ card.title }}</mat-card-subtitle>
+      </mat-card-header>
+      <img
+        *ngIf="card.imgUrl"
+        mat-card-image
+        [src]="card.imgUrl"
+        [alt]="'Photo of ' + card.name"
+      />
+      <mat-card-content>
+        <p>{{ card.desc }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <!-- <button mat-stroked-button color="accent">LIKE</button> -->
+        <button mat-stroked-button color="accent">SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

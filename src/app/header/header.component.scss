@@ -1,0 +1,96 @@
+@import '../../scss/colors.scss';
+
+.fit--header--link--fill {
+  content: '';
+  position: absolute;
+  width: 0;
+  opacity: 0;
+  height: 0.1rem;
+  bottom: 0;
+  transition: all 0.25s ease-in;
+  background-color: $accent;
+}
+
+.fit--header {
+  box-shadow: 0 0 0.25rem $shadow;
+  background-color: $white;
+  justify-content: space-between;
+  height: 5rem;
+
+  &--title {
+    font-size: 2.25rem;
+    text-decoration: none;
+    color: $primary;
+  }
+
+  &--filler {
+    flex: 1 1 auto;
+  }
+
+  &--link {
+    margin-left: 1rem;
+    color: $primary;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 0.1rem;
+
+    &--fill-left:after {
+      @extend .fit--header--link--fill;
+      left: 0;
+    }
+
+    &--fill-right:after {
+      @extend .fit--header--link--fill;
+      right: 0;
+    }
+
+    &--fill-center {
+      &:before {
+        @extend .fit--header--link--fill;
+        left: 50%;
+      }
+
+      &:after {
+        @extend .fit--header--link--fill;
+        right: 50%;
+      }
+    }
+
+    &--fill-ends {
+      &:before {
+        @extend .fit--header--link--fill;
+        left: 0;
+      }
+
+      &:after {
+        @extend .fit--header--link--fill;
+        right: 0;
+      }
+    }
+
+    &--fill-left.active,
+    &--fill-right.active,
+    &--fill-left:hover,
+    &--fill-right:hover,
+    &--fill-left:focus,
+    &--fill-right:focus {
+      &:after {
+        width: 100%;
+        opacity: 1;
+      }
+    }
+
+    &--fill-center.active,
+    &--fill-ends.active,
+    &--fill-center:hover,
+    &--fill-ends:hover,
+    &--fill-center:focus,
+    &--fill-ends:focus {
+      &:before,
+      &:after {
+        width: 50%;
+        opacity: 1;
+      }
+    }
+  }
+}
