@@ -5,7 +5,7 @@
   #ref
 >
   <mat-grid-tile
-    *ngFor="let card of cards"
+    *ngFor="let card of users"
     [colspan]="tileWidth"
     [rowspan]="tileHeight"
   >
@@ -13,7 +13,7 @@
       <mat-card-header>
         <mat-card-title>
           <a class="about--card--name" [routerLink]="card.username">{{
-            card.name
+            card.first + ' ' + card.last
           }}</a>
         </mat-card-title>
         <mat-card-subtitle>{{ card.title }}</mat-card-subtitle>
@@ -23,9 +23,10 @@
         mat-card-image
         [src]="card.imgUrl"
         [alt]="'Photo of ' + card.name"
+        [routerLink]="card.username"
       />
       <mat-card-content>
-        <p>{{ card.desc }}</p>
+        <p>{{ card.bio }}</p>
       </mat-card-content>
       <mat-card-actions>
         <!-- <button mat-stroked-button color="accent">LIKE</button> -->

@@ -1,10 +1,12 @@
-import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 export interface Card {
   username: string;
-  name: string;
+  first: string;
+  last: string;
   title: string;
-  desc: string;
+  bio: string;
   id: number;
   imgUrl?: string;
 }
@@ -21,41 +23,22 @@ export class AboutComponent implements OnInit {
   tileWidth = 3;
   tileHeight = 4;
   cards: Card[] = [];
+  users: Card[] = [];
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.cards.push({
-      username: 'mackenzie',
-      name: 'Mackenzie Schaeffer',
-      id: 2,
-      title: 'Founder',
-      desc: 'Short description about yourself...',
-      imgUrl:
-        'https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/36313556_10214186408786605_1290330118429868032_n.jpg?_nc_cat=110&_nc_sid=7aed08&_nc_ohc=I15Tx_e2BesAX-2w1qL&_nc_ht=scontent-iad3-1.xx&oh=2f29b15b1a6e86a35782b13cbdd3220e&oe=5EA1D789'
-      // imgUrl:
-      //   'https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/90059990_10219060671200119_8718139812462198784_n.jpg?_nc_cat=109&_nc_sid=85a577&_nc_ohc=1i6XzcN0XVIAX-5H6NB&_nc_ht=scontent-iad3-1.xx&oh=4a62d870782a38a330b4d3eb6fed626b&oe=5EA00453'
-    });
-    this.cards.push({
-      username: 'brent',
-      name: 'Brent Schaeffer',
-      id: 3,
-      title: 'Founder',
-      desc: 'Short description about yourself...',
-      imgUrl:
-        'https://media-exp1.licdn.com/dms/image/C4D03AQHoASa5sOWmBw/profile-displayphoto-shrink_800_800/0?e=1590624000&v=beta&t=e3vESmQX__5HQFEsinvz9xqwjQELJxnnncM2gKnU-Ck'
-    });
-    for (let i = 0; i < 1; i++) {
-      this.cards.push({
-        username: 'blaise',
-        name: 'Blaise Schaeffer',
-        id: 1,
-        title: 'Founder',
-        desc: 'Short description about yourself...',
-        imgUrl:
-          'https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/65395392_10217098605712140_7204037061777555456_n.jpg?_nc_cat=110&_nc_sid=85a577&_nc_ohc=Ipsv3HIxOhoAX8GHXZx&_nc_ht=scontent-iad3-1.xx&oh=b3613a2e351124ba247169468745c111&oe=5EA18E96'
+    this.http
+      .get('https://fitrition-fb.firebaseio.com/users.json', {
+        params: { auth: 'e2spXGVClZQb7oBXNxgQ4DmjjdsyYnqo2yY7gEvq' }
+      })
+      .subscribe((response: { [key: string]: Card }[]) => {
+        const keys = Object.keys(response);
+        keys.forEach((k) => {
+          this.users.push(response[k]);
+        });
+        this.users.sort(this.sotrUsers);
       });
-    }
 
     this.adjustTileWidth();
   }
@@ -63,6 +46,19 @@ export class AboutComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(_event: Event): void {
     this.adjustTileWidth();
+  }
+
+  private sotrUsers(user1: Card, user2: Card): number {
+    const n1 = `${user1.first} ${user1.last}`;
+    const n2 = `${user2.first} ${user2.last}`;
+
+    if (n1 > n2) {
+      return 1;
+    } else if (n1 < n2) {
+      return -1;
+    }
+
+    return 0;
   }
 
   private adjustTileWidth(): void {

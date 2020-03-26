@@ -1,6 +1,7 @@
 {
   "name": "fitrition",
   "version": "0.0.0",
+  "homepage": "https://fitrition.blaise2s.herokuapp.com/",
   "scripts": {
     "build": "ng build",
     "e2e": "ng e2e",
@@ -37,6 +38,8 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
     "husky": "^4.2.3",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",

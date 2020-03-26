@@ -1,1 +1,47 @@
-<p>contact works!</p>
+<div class="fit--contact">
+  <div class="fit--contact--name-email">
+    <mat-form-field appearance="standard" color="primary">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="John Doe"
+        [formControl]="name"
+        required
+      />
+      <mat-error *ngIf="name.invalid">{{ nameError }}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="standard" color="primary">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        type="email"
+        placeholder="john@doe.com"
+        [formControl]="email"
+        required
+      />
+      <mat-error *ngIf="email.invalid">{{ emailError }}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="fit--contact--feedback">
+    <mat-form-field appearance="fill" color="primary">
+      <mat-label>Inquiries, Questions, & Comments</mat-label>
+      <textarea
+        class="fit--contact--feedback--textarea"
+        matInput
+        placeholder="How can I buy some of your work?"
+        [formControl]="textArea"
+        required
+      ></textarea>
+      <mat-error *ngIf="textArea.invalid">{{ textAreaError }}</mat-error>
+    </mat-form-field>
+  </div>
+  <button
+    mat-flat-button
+    color="accent"
+    (click)="onSubmit()"
+    [disabled]="isDisabled"
+  >
+    Submit
+  </button>
+</div>

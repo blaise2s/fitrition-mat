@@ -1,0 +1,25 @@
+.fit--contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &--name-email {
+    display: flex;
+    margin-bottom: 1rem;
+
+    mat-form-field:nth-child(n + 2) {
+      margin-left: 2rem;
+    }
+  }
+
+  &--feedback {
+    mat-form-field {
+      width: 25rem;
+    }
+
+    &--textarea {
+      height: 10rem;
+      resize: none;
+    }
+  }
+}
