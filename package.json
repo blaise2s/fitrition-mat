@@ -1,7 +1,6 @@
 {
   "name": "fitrition",
   "version": "0.0.0",
-  "homepage": "https://fitrition.blaise2s.herokuapp.com/",
   "scripts": {
     "all-tests": "npm run lint && npm run test-headless && npm run e2e-headless",
     "build": "ng build",

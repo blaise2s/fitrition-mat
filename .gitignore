@@ -75,6 +75,8 @@ typings/
 
 # e2e
 e2e/*.js
+!protractor.conf.js
+!ci.protractor.conf.js
 e2e/*.map
 
 #System Files

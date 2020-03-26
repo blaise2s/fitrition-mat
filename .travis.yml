@@ -10,4 +10,4 @@ deploy:
   app: fitrition
 script:
   - npm run all-tests
-  - npm run build -- --prod --base-href $base_href
+  - npm run build -- --prod
